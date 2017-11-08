@@ -1,7 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <el-container>
+      <el-header style="height:100px;background:#999;">
+        Header
+      </el-header>
+      <el-container>
+        <el-side width="200px" style="background:#5b9021;"></el-side>
+        <el-main style="background:#dedede;">
+          <transition name="el-fade-in-linear">
+            <router-view></router-view>
+          </transition>
+        </el-main>
+      </el-container>
+      <el-footer style="height:60px;background:#999;">
+        Footer
+      </el-footer>
+    </el-container>
+
   </div>
 </template>
 
