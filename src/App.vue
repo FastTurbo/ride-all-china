@@ -2,9 +2,17 @@
   <div id="app">
     <el-container>
       <el-header class="header">
-        <div class="logo">
+        <el-row class="row">
+          <el-col class="logo" :span="4">
+            <p class="title">骑行中国</p>
+            <p class="url">www.ridechina.com</p>
+          </el-col>
+          <el-col :offset="4" :span="16">
+            新闻
+          </el-col>
 
-        </div>
+
+        </el-row>
         <el-menu
           class="nav"
           :default-active="activeIndex"
@@ -40,7 +48,6 @@
     },
     method: {
       handleSelect() {
-        console.log('We change the menu.')
       }
     }
   }
@@ -63,8 +70,29 @@
       top: 0;
       left: 0;
 
-      .logo{
+      .row{
         height:100px;
+        .logo{
+          font-family: "Microsoft YaHei";
+          padding-top:20px;
+
+          p{
+            margin:0;
+          }
+
+          .title {
+            line-height: 60px;
+            color: #fff;
+            font-size: 40px;
+          }
+          .url{
+            height:20px;
+            line-height:20px;
+            color:#fff;
+            font-size:16px;
+          }
+        }
+
       }
 
       .nav{

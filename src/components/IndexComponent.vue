@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="padding:0 120px;">
+    <div style="padding:0 275px;">
       <el-carousel
         class="carousel"
         :interval="5000"
@@ -9,14 +9,15 @@
           class="carousel-item"
           v-for="item,index in carousels"
           :key="item.index"
-          :style="{background:`url(${item.url}) no-repeat top center`}">
+          :style="{background:`rgba(0,0,0,0.1) url(${item.url}) no-repeat top center`}">
 
-          <p class="text">{{item.text}}</p>
+          <p class="text"><span class="date">{{ item.date }}</span> {{ item.text }}</p>
 
         </el-carousel-item>
 
       </el-carousel>
     </div>
+    <div class="line"></div>
 
   </div>
 </template>
@@ -29,23 +30,28 @@
         carousels:[
           {
             url:'../static/images/carousel/tianlu.jpg',
-            text:'天路'
+            date:'2017-04-23',
+            text:'畅游天路 呼吸大自然空气'
           },
           {
             url:'../static/images/carousel/xizang.jpg',
-            text:'西藏'
+            date:'2017-5-11',
+            text:'骑行西藏 领略鬼斧神工'
           },
           {
             url:'../static/images/carousel/xueshan.jpg',
-            text:'雪山'
+            date:'2017-02-09',
+            text:'雪山之巅 唯美尽收眼底'
           },
           {
             url:'../static/images/carousel/hainan.jpg',
-            text:'海南'
+            date:'2017-05-22',
+            text:'壮美海南 秋水长天一色'
           },
           {
             url:'../static/images/carousel/gonglu.jpg',
-            text:'公路'
+            date:'2017-07-02',
+            text:'征服公路 享受成功快乐'
           }
         ]
       }
@@ -65,9 +71,9 @@
       height:300px;
 
       .text{
-        background:#000;
-        opacity:0.3;
+        background:rgba(0,0,0,0.4);
         color:#fff;
+        opacity:1;
         height:40px;
         width:100%;
         line-height:40px;
@@ -79,6 +85,12 @@
         left:0;
       }
     }
+  }
+
+  .line{
+    height:1px;
+    margin:10px 30px;
+    background:linear-gradient(to left,#b3e8ff,#0038e6,#b3e8ff);
   }
 
 </style>
