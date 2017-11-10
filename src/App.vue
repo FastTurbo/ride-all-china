@@ -47,6 +47,7 @@
 
     .main {
       position:fixed;
+      padding:10px 20px;
       top:160px;
       bottom:30px;
       left:0;

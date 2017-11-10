@@ -4,8 +4,17 @@
       <carousel-component :carousels="carousels"></carousel-component>
     </div>
     <div class="line"></div>
+    <div style="margin:0 auto;">
+      <ul class="riders">
 
+        <li class="rider" style="" v-for="item in 16" :key="item">
+          <img :src="'../../static/images/riders/0' + (item<10?('0'+item):item) + '.jpg'" >
+        </li>
+
+      </ul>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -43,7 +52,12 @@
         ]
       }
     },
-    method:{
+    methods:{
+      handleSrc (item) {
+        return '../../static/images/riders/0' + (item<10? ('0'+item) : item) + '.jpg'
+      }
+    },
+    computed:{
 
     },
     components:{
@@ -59,6 +73,30 @@
     height:1px;
     margin:10px 30px;
     background:linear-gradient(to left,#b3e8ff,#0038e6,#b3e8ff);
+  }
+
+  .riders{
+    list-style:none;
+    margin:0;
+    clear:both;
+
+    &:after{
+      content:'';
+      height:0;
+    }
+
+    .rider{
+      float:left;
+      height:120px;
+      width:200px;
+      border:1px solid #fff;
+
+      img{
+        height:120px;
+        width:200px;
+      }
+    }
+
   }
 
 </style>
