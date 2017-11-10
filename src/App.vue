@@ -7,7 +7,7 @@
       </el-main>
 
       <el-footer class="footer">
-        Footer
+        <footer-component></footer-component>
       </el-footer>
     </el-container>
   </div>
@@ -15,6 +15,7 @@
 
 <script>
   import HeaderComponent from './components/HeaderComponent.vue'
+  import FooterComponent from './components/FooterComponent.vue'
   export default {
     name: 'app',
     data() {
@@ -28,7 +29,8 @@
       }
     },
     components:{
-      HeaderComponent
+      HeaderComponent,
+      FooterComponent
     }
   }
 </script>
@@ -46,7 +48,7 @@
     .main {
       position:fixed;
       top:160px;
-      bottom:60px;
+      bottom:30px;
       left:0;
       right:0;
       overflow:hidden;
@@ -54,9 +56,9 @@
     }
 
     .footer {
-      height: 60px;
-      line-height: 60px;
-      background: #999;
+      height: 30px !important;
+      line-height: 30px;
+      background: #409eff;
       width: 100%;
       text-align: center;
       position: fixed;
