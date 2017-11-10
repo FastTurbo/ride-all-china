@@ -19,9 +19,7 @@
       </el-header>
 
       <el-main class="main">
-        <div style="height:1200px;line-height:1200px;">
-          Main
-        </div>
+        <router-view></router-view>
       </el-main>
 
       <el-footer class="footer">
@@ -85,7 +83,6 @@
       bottom:60px;
       left:0;
       right:0;
-      background:#dedede;
       overflow:hidden;
       overflow-y:auto;
     }
