@@ -6,9 +6,11 @@
     <div class="line"></div>
     <div style="margin:0 auto;">
       <ul class="riders">
-
-        <li class="rider" style="" v-for="item in 16" :key="item">
+        <li class="rider"
+            v-for="item in 16"
+            :key="item">
           <img :src="'../../static/images/riders/0' + (item<10?('0'+item):item) + '.jpg'" >
+          <p>{{'0' + (item<10?('0'+item):item) }}</p>
         </li>
 
       </ul>
@@ -53,9 +55,7 @@
       }
     },
     methods:{
-      handleSrc (item) {
-        return '../../static/images/riders/0' + (item<10? ('0'+item) : item) + '.jpg'
-      }
+
     },
     computed:{
 
@@ -90,10 +90,37 @@
       height:120px;
       width:200px;
       border:1px solid #fff;
+      position: relative;
+
+      &:hover{
+        p{
+          transition:height 0.2s ease-in-out;
+          height:30px;
+          visibility: visible;
+        }
+      }
 
       img{
         height:120px;
         width:200px;
+        z-index:5;
+      }
+
+      p{
+        position:absolute;
+        margin:0;
+        right:0;
+        bottom:0;
+        left:0;
+        visibility: hidden;
+        height:0;
+        text-align:left;
+        line-height:30px;
+        padding-left:20px;
+        color:#fff;
+        background:rgba(0,0,0,0.5);
+        z-index:20;
+        transition:height 0.2s ease-in-out;
       }
     }
 
