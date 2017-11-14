@@ -13,7 +13,15 @@
         </el-col>
 
       </el-row>
-      <nav-component :activeIndex="activeIndex"></nav-component>
+      <nav-component :is-show="!isLogin" :active-index="activeIndex"></nav-component>
+      <el-button-group class="button-group">
+        <el-button type="primary">
+          <router-link to="/login" @click="login()">登录</router-link>
+        </el-button>
+        <el-button type="primary" @click="logout()">
+          <router-link to="/">退出</router-link>
+        </el-button>
+      </el-button-group>
     </el-header>
   </div>
 </template>
@@ -22,12 +30,26 @@
   import HotComponent from './HotComponent.vue'
   import NavComponent from './NavComponent.vue'
   export default {
-    props:[
+    props: [
       'activeIndex'
     ],
-    components:{
+    data(){
+      return {
+        isLogin:false
+      }
+    },
+    components: {
       HotComponent,
       NavComponent
+    },
+    methods:{
+      login(){
+        this.isLogin = true
+      },
+      logout() {
+        this.isLogin = false
+        console.log('logout!')
+      }
     }
   }
 
@@ -35,52 +57,61 @@
 
 <style lang="less" scoped>
   .header {
-    height:160px !important;
-    padding:0;
+    height: 160px !important;
+    padding: 0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
 
-  .row{
-    height:100px;
+    a{
+      text-decoration: none;
+      color:#fff;
+    }
 
-  .logo{
-    font-family: "Microsoft YaHei";
-    padding-top:10px;
-    color:#409EFF;
+    .row {
+      height: 100px;
 
-  p{
-    margin:0;
-  }
+      .logo {
+        font-family: "Microsoft YaHei";
+        padding-top: 10px;
+        color: #409EFF;
 
-  .title {
-    line-height: 60px;
-    font-size: 40px;
-  }
-  .url{
-    height:20px;
-    line-height:20px;
-    font-size:16px;
-  }
-  }
+        p {
+          margin: 0;
+        }
 
-  .news{
-    height:100px;
-    text-align:left;
-    padding:10px 20px;
+        .title {
+          line-height: 60px;
+          font-size: 40px;
+        }
+        .url {
+          height: 20px;
+          line-height: 20px;
+          font-size: 16px;
+        }
+      }
 
-  ul{
-    margin:0;
-    list-style:none;
-  }
+      .news {
+        height: 100px;
+        text-align: left;
+        padding: 10px 20px;
 
+        ul {
+          margin: 0;
+          list-style: none;
+        }
 
+      }
 
-  }
+    }
 
-  }
+    .button-group{
+      position:absolute;
+      bottom:10px;
+      right:20px;
 
+    }
 
   }
 </style>

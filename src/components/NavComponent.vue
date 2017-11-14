@@ -19,14 +19,31 @@
 <script>
   export default{
     props:[
+      'isShow',
       'activeIndex'
     ],
     created() {
       this.$store.dispatch('getNav')
     },
+    data(){
+      return {
+        show:this.isShow
+      }
+    },
     computed:{
       nav(){
-        return this.$store.getters.getNav
+        if(this.show){
+          return this.$store.getters.getNav
+        }else{
+          return []
+        }
+      }
+
+    },
+    watch:{
+      isShow(val) {
+        console.log(val)
+        this.show = val
       }
     },
     methods:{
