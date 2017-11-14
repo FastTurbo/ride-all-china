@@ -1,0 +1,29 @@
+{
+  "nav":[
+    {
+      "name":"首页",
+      "route":"index",
+      "index":"1"
+    },
+    {
+      "name":"骑行游记",
+      "route":"records",
+      "index":"2"
+    },
+    {
+      "name":"骑行路线",
+      "route":"routers",
+      "index":"3"
+    },
+    {
+      "name":"骑行队伍",
+      "route":"teams",
+      "index":"4"
+    },
+    {
+      "name":"骑行装备",
+      "route":"configs",
+      "index":"5"
+    }
+  ]
+}

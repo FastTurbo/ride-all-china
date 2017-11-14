@@ -5,11 +5,13 @@
       :default-active="activeIndex"
       mode="horizontal"
       @select="handleSelect">
-      <el-menu-item class="nav-item" index="1">首页</el-menu-item>
-      <el-menu-item class="nav-item" index="2">骑行游记</el-menu-item>
-      <el-menu-item class="nav-item" index="3">骑行路线</el-menu-item>
-      <el-menu-item class="nav-item" index="4">骑行队伍</el-menu-item>
-      <el-menu-item class="nav-item" index="5">骑行装备</el-menu-item>
+      <el-menu-item
+        class="nav-item"
+        v-for="item in nav"
+        :key="item.index"
+        :index="item.index">
+        {{item.name}}
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -18,7 +20,20 @@
   export default{
     props:[
       'activeIndex'
-    ]
+    ],
+    created() {
+      this.$store.dispatch('getNav')
+    },
+    computed:{
+      nav(){
+        return this.$store.getters.getNav
+      }
+    },
+    methods:{
+      handleSelect() {
+        console.log('select...')
+      }
+    }
   }
 </script>
 

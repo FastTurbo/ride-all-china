@@ -42,5 +42,8 @@ export function fetch(url,params){
 export default {
   getList(params){
     return fetch('/static/datas/carousels.json',params)
+  },
+  getNav(params) {
+    return fetch('/static/datas/nav.json',params)
   }
 }
