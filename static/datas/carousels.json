@@ -1,0 +1,29 @@
+{
+  "carousels":[
+    {
+      "url":"../static/images/carousel/tianlu.jpg",
+      "date":"2017-04-23",
+      "text":"畅游天路 呼吸大自然空气"
+    },
+    {
+      "url":"../static/images/carousel/xizang.jpg",
+      "date":"2017-5-11",
+      "text":"骑行西藏 领略鬼斧神工"
+    },
+    {
+      "url":"../static/images/carousel/xueshan.jpg",
+      "date":"2017-02-09",
+      "text":"雪山之巅 唯美尽收眼底"
+    },
+    {
+      "url":"../static/images/carousel/hainan.jpg",
+      "date":"2017-05-22",
+      "text":"壮美海南 秋水长天一色"
+    },
+    {
+      "url":"../static/images/carousel/gonglu.jpg",
+      "date":"2017-07-02",
+      "text":"征服公路 享受成功快乐"
+    }
+  ]
+}

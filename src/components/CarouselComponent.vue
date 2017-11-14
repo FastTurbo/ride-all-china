@@ -20,9 +20,18 @@
 
 <script>
   export default {
-    props:[
+
+    /*props:[
       'carousels'
-    ]
+    ],*/
+    created() {
+      this.$store.dispatch('getList')
+    },
+    computed:{
+      carousels() {
+        return this.$store.getters.getList
+      }
+    }
   }
 
 </script>

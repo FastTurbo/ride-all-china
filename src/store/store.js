@@ -5,11 +5,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import com from './modules/com'
+import carousels from './modules/carousels'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules:{
-    com
+    com,
+    carousels
   }
 })
