@@ -1,18 +1,21 @@
 <template>
-  <div>
-    <el-menu
-      class="nav"
-      :default-active="activeIndex"
-      mode="horizontal"
-      @select="handleSelect">
-      <el-menu-item
-        class="nav-item"
-        v-for="item in nav"
-        :key="item.index"
-        :index="item.index">
-        {{item.name}}
-      </el-menu-item>
-    </el-menu>
+  <div class="wrapper">
+    <div v-show="isShow">
+      <el-menu
+        class="nav"
+        :default-active="activeIndex"
+        mode="horizontal"
+        @select="handleSelect">
+        <el-menu-item
+          class="nav-item"
+          v-for="item in nav"
+          :key="item.index"
+          :index="item.index">
+          {{item.name}}
+        </el-menu-item>
+      </el-menu>
+    </div>
+
   </div>
 </template>
 
@@ -27,23 +30,12 @@
     },
     data(){
       return {
-        show:this.isShow
+
       }
     },
     computed:{
       nav(){
-        if(this.show){
-          return this.$store.getters.getNav
-        }else{
-          return []
-        }
-      }
-
-    },
-    watch:{
-      isShow(val) {
-        console.log(val)
-        this.show = val
+        return this.$store.getters.getNav
       }
     },
     methods:{
@@ -55,6 +47,13 @@
 </script>
 
 <style lang="less" scoped="">
+
+  .wrapper{
+    height:60px;
+    background:#409eff;
+  }
+
+
   .nav {
     height: 60px;
     background: #409eff;

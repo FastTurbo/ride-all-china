@@ -15,10 +15,10 @@
       </el-row>
       <nav-component :is-show="!isLogin" :active-index="activeIndex"></nav-component>
       <el-button-group class="button-group">
-        <el-button type="primary">
-          <router-link to="/login" @click="login()">登录</router-link>
+        <el-button type="primary" @click="login">
+          <router-link to="/login" >登录</router-link>
         </el-button>
-        <el-button type="primary" @click="logout()">
+        <el-button type="primary" @click="logout">
           <router-link to="/">退出</router-link>
         </el-button>
       </el-button-group>
@@ -48,7 +48,6 @@
       },
       logout() {
         this.isLogin = false
-        console.log('logout!')
       }
     }
   }
