@@ -15,7 +15,7 @@
       </el-form-item>
       <el-form-item
         label="密码"
-        prop="pass"
+        prop="password"
         :rules="[
           {required:true,message:'请输入密码!'}
         ]">
@@ -25,9 +25,8 @@
         <el-button type="primary" @click="login('user')">登录</el-button>
         <el-button type="warning" @click="reset('user')">重置</el-button>
         <p class="tips">
-          <router-link class="link" to="">忘记密码？</router-link>
-
-          <router-link class="link" to="">没有账号？注册</router-link>
+          <router-link class="link" to="/findPass">忘记密码？</router-link>
+          <router-link class="link" to="/register">没有账号？注册</router-link>
         </p>
       </el-form-item>
       <el-form-item>
