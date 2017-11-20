@@ -2,8 +2,9 @@
   <div >
     <el-form
       class="login-form"
-      :label-position="right"
+      label-width="100px"
       :model="user">
+
       <el-form-item
         label="登录名"
         prop="name"
@@ -23,6 +24,11 @@
       <el-form-item>
         <el-button type="primary" @click="login('user')">登录</el-button>
         <el-button type="warning" @click="reset('user')">重置</el-button>
+        <p class="tips">
+          <router-link class="link" to="">忘记密码？</router-link>
+
+          <router-link class="link" to="">没有账号？注册</router-link>
+        </p>
       </el-form-item>
       <el-form-item>
 
@@ -41,6 +47,18 @@ export default {
         password:''
       }
     }
+  },
+  created () {
+    this.user.name = ''
+    this.user.password = ''
+  },
+  methods:{
+    login(user) {
+
+    },
+    reset(user) {
+
+    }
   }
 
 }
@@ -54,6 +72,24 @@ export default {
     margin:0 auto;
     padding:20px;
 
+    .el-form-item{
+      width:400px;
+      margin:20px auto 0;
+    }
+
+  }
+
+  .tips{
+    color:#409eff;
+    .link{
+      text-decoration: none;
+      color:#409eff;
+      padding:0 5px;
+
+      &:first-child{
+        border-right:1px solid #409eff;
+      }
+    }
   }
 
 </style>
