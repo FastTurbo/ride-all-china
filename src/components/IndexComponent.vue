@@ -61,7 +61,7 @@
 
     },
     components:{
-      CarouselComponent
+      'carousel-component': () => import('./CarouselComponent')
     }
   }
 

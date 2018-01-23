@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import IndexComponent from '@/components/IndexComponent'
-import LoginComponent from '@/components/LoginComponent'
-import FindPasswordComponent from '@/components/FindPasswordComponent'
-import RegisterComponent from '@/components/RegisterComponent'
+
 
 Vue.use(Router)
 
@@ -17,17 +15,24 @@ export default new Router({
     {
       path:'/login',
       name:'login',
-      component:LoginComponent
+      component:(resolve) => {
+          require(['../components/LoginComponent.vue'],resolve)
+      }
+      //LoginComponent
     },
     {
       path:'/findPass',
       name:'findPass',
-      component:FindPasswordComponent
+      component:(resolve) => {
+        require(['../components/FindPasswordComponent.vue'],resolve)
+      }
     },
     {
       path:'/register',
       name:'register',
-      component:RegisterComponent
+      component:(resolve) => {
+        require(['../components/RegisterComponent.vue'],resolve)
+      }
     }
   ]
 })

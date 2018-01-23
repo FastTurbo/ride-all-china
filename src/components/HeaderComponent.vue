@@ -27,8 +27,6 @@
 </template>
 
 <script>
-  import HotComponent from './HotComponent.vue'
-  import NavComponent from './NavComponent.vue'
   export default {
     props: [
       'activeIndex'
@@ -39,8 +37,8 @@
       }
     },
     components: {
-      HotComponent,
-      NavComponent
+      'hot-component': () => import('./HotComponent.vue'),
+      'nav-component': () => import('./NavComponent.vue')
     },
     methods:{
       login(){
