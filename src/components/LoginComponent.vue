@@ -1,27 +1,13 @@
 <template>
   <div >
-    <el-form
-      class="login-form"
-      label-width="100px"
-      :model="user">
-
-      <el-form-item
-        label="登录名"
-        prop="name"
-        :rules="[
-          {required:true,message:'请输入用户名!'}
-        ]">
-        <el-input v-model="user.name"></el-input>
+    <el-form class="login-form" :rules="rules" :model="user">
+      <el-form-item prop="name">
+        <el-input v-model="user.name" placeholder="用户名"></el-input>
       </el-form-item>
-      <el-form-item
-        label="密码"
-        prop="password"
-        :rules="[
-          {required:true,message:'请输入密码!'}
-        ]">
-        <el-input type="password" v-model="user.password"></el-input>
+      <el-form-item prop="password">
+        <el-input type="password" v-model="user.password" placeholder="密码"></el-input>
       </el-form-item>
-      <el-form-item>
+      <el-form-item style="width:100%;">
         <el-button type="primary" @click="login('user')">登录</el-button>
         <el-button type="warning" @click="reset('user')">重置</el-button>
         <p class="tips">
@@ -29,10 +15,6 @@
           <router-link class="link" to="/register">没有账号？注册</router-link>
         </p>
       </el-form-item>
-      <el-form-item>
-
-      </el-form-item>
-
     </el-form>
   </div>
 </template>
@@ -44,6 +26,14 @@ export default {
       user:{
         name:'',
         password:''
+      },
+      rules:{
+        name:[
+          { required:true,message:'请输入用户名',trigger:'blur'}
+        ],
+        password:[
+          { required:true,message:'请输入密码',trigger:'blur'}
+        ]
       }
     }
   },
@@ -52,8 +42,17 @@ export default {
     this.user.password = ''
   },
   methods:{
-    login(user) {
-
+    login() {
+        console.log(this.user)
+        if(this.user.name == 'admin' && this.user.password == '123456'){
+            sessionStorage.setItem('user',this.user.name);
+          this.$router.push({path:'/home'});
+        }else{
+            this.$message({
+              message:'用户名或密码错误',
+              type:'error'
+            })
+        }
     },
     reset(user) {
 
@@ -67,15 +66,10 @@ export default {
   .login-form{
     border:1px solid #409eff;
     border-radius:5px;
-    width:800px;
-    margin:0 auto;
-    padding:20px;
-
-    .el-form-item{
-      width:400px;
-      margin:20px auto 0;
-    }
-
+    width:400px;
+    margin:200px auto;
+    padding:30px 30px 0px 30px;
+    //background:linear-gradient(left top,#33CCFF,#00FF00);
   }
 
   .tips{

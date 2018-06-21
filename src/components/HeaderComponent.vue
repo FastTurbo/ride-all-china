@@ -14,14 +14,15 @@
 
       </el-row>
       <nav-component :is-show="!isLogin" :active-index="activeIndex"></nav-component>
-      <el-button-group class="button-group">
-        <el-button type="primary" @click="login">
-          <router-link to="/login" >登录</router-link>
-        </el-button>
-        <el-button type="primary" @click="logout">
-          <router-link to="/">退出</router-link>
-        </el-button>
-      </el-button-group>
+      <el-dropdown class="dropdown">
+        <div class="user-info">{{sessionName}}</div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>消息</el-dropdown-item>
+          <el-dropdown-item>设置</el-dropdown-item>
+          <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
+        </el-dropdown-menu>
+
+      </el-dropdown>
     </el-header>
   </div>
 </template>
@@ -33,7 +34,8 @@
     ],
     data(){
       return {
-        isLogin:false
+        isLogin:false,
+        sessionName:''
       }
     },
     components: {
@@ -45,8 +47,12 @@
         this.isLogin = true
       },
       logout() {
-        this.isLogin = false
+        sessionStorage.removeItem('user');
+        this.$router.push({path:'/login'})
       }
+    },
+    mounted(){
+      this.sessionName = sessionStorage.getItem('user') || ''
     }
   }
 
@@ -103,12 +109,18 @@
 
     }
 
-    .button-group{
+    .dropdown{
       position:absolute;
-      bottom:10px;
+      bottom:0px;
       right:20px;
 
+      .user-info{
+        height:60px;
+        line-height:60px;
+        font-size:24px;
+        color:#fff;
+        cursor:pointer;
+      }
     }
-
   }
 </style>
