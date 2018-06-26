@@ -28,6 +28,7 @@
 </template>
 
 <script>
+  import {user,riders} from '@/mock/index'
   export default {
     props: [
       'activeIndex'
@@ -52,6 +53,7 @@
       }
     },
     mounted(){
+      console.log(riders);
       this.sessionName = sessionStorage.getItem('user') || ''
     }
   }

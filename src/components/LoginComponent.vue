@@ -8,7 +8,7 @@
         <el-input type="password" v-model="user.password" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item style="width:100%;">
-        <el-button type="primary" @click="login('user')">登录</el-button>
+        <el-button type="primary" @click="login('user')" :loading="loginLoading">登录</el-button>
         <el-button type="warning" @click="reset('user')">重置</el-button>
         <p class="tips">
           <router-link class="link" to="/findPass">忘记密码？</router-link>
@@ -20,9 +20,11 @@
 </template>
 
 <script>
+  import { userLogin } from '../api/api'
 export default {
   data() {
     return {
+      loginLoading:false,
       user:{
         name:'',
         password:''
@@ -43,16 +45,22 @@ export default {
   },
   methods:{
     login() {
-        console.log(this.user)
-        if(this.user.name == 'admin' && this.user.password == '123456'){
+      this.loginLoading = true
+        userLogin({name:this.user.name,password:this.user.password}).then((res)=>{
+          this.loginLoading = false
+          if(res.code === 200){
+
             sessionStorage.setItem('user',this.user.name);
-          this.$router.push({path:'/home'});
-        }else{
+            this.$router.push({path:'/home'});
+          }else{
             this.$message({
               message:'用户名或密码错误',
               type:'error'
             })
-        }
+          }
+          console.log('user login');
+          console.log(res);
+        })
     },
     reset(user) {
 
