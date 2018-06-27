@@ -1,7 +1,7 @@
 /**
  * Created by tianpf on 2017/11/10.
  */
-import api from '../../api'
+import * as api from '../../api/api'
 import * as types from '../type'
 
 const state = {

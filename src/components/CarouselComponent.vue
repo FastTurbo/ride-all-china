@@ -31,6 +31,9 @@
       carousels() {
         return this.$store.getters.getList
       }
+    },
+    mounted(){
+
     }
   }
 

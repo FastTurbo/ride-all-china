@@ -64,6 +64,7 @@
       font-size: 20px;
 
       &:hover, &.is-active {
+        color:#fff;
         background: #a55555;
         border-bottom: 2px solid #a55555;
       }

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import { userLogin } from '../api/api'
+import { userLogin } from '../api/api'
 export default {
   data() {
     return {
@@ -43,24 +43,26 @@ export default {
     this.user.name = ''
     this.user.password = ''
   },
+  mounted(){
+
+  },
   methods:{
     login() {
       this.loginLoading = true
-        userLogin({name:this.user.name,password:this.user.password}).then((res)=>{
-          this.loginLoading = false
-          if(res.code === 200){
-
-            sessionStorage.setItem('user',this.user.name);
-            this.$router.push({path:'/home'});
-          }else{
-            this.$message({
-              message:'用户名或密码错误',
-              type:'error'
-            })
-          }
-          console.log('user login');
-          console.log(res);
-        })
+      userLogin({name:this.user.name,password:this.user.password}).then((res)=>{
+        this.loginLoading = false
+        if(res.code === 200){
+          sessionStorage.setItem('user',this.user.name);
+          this.$router.push({path:'/home'});
+        }else{
+          this.$message({
+            message:'用户名或密码错误',
+            type:'error'
+          })
+        }
+        console.log('user login');
+        console.log(res);
+      })
     },
     reset(user) {
 

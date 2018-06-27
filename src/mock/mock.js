@@ -18,7 +18,8 @@ export default {
 
     //login
     mock.onPost('/login').reply(config => {
-      let {name,password} = qs.parse(config.data);
+      console.log(config);
+      let {name,password} = JSON.parse(config.data);
       return new Promise((resolve,reject) => {
           setTimeout(()=>{
             let hasUser = user.some(u => {
@@ -35,5 +36,8 @@ export default {
           },1000)
       })
     })
+
+    mock.onAny().passThrough();
+
   }
 }

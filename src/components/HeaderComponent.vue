@@ -28,14 +28,12 @@
 </template>
 
 <script>
-  import {user,riders} from '@/mock/index'
   export default {
-    props: [
-      'activeIndex'
-    ],
+
     data(){
       return {
         isLogin:false,
+        activeIndex:'1',
         sessionName:''
       }
     },
@@ -45,7 +43,7 @@
     },
     methods:{
       login(){
-        this.isLogin = true
+        this.isLogin = false;
       },
       logout() {
         sessionStorage.removeItem('user');
@@ -53,7 +51,6 @@
       }
     },
     mounted(){
-      console.log(riders);
       this.sessionName = sessionStorage.getItem('user') || ''
     }
   }
