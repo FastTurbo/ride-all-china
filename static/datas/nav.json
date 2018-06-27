@@ -3,27 +3,32 @@
     {
       "name":"首页",
       "route":"index",
-      "index":"1"
+      "index":"1",
+      "path":"/home"
     },
     {
       "name":"骑行游记",
       "route":"records",
-      "index":"2"
+      "index":"2",
+      "path":"/table1"
     },
     {
       "name":"骑行路线",
       "route":"routers",
-      "index":"3"
+      "index":"3",
+      "path":""
     },
     {
       "name":"骑行队伍",
       "route":"teams",
-      "index":"4"
+      "index":"4",
+      "path":""
     },
     {
       "name":"骑行装备",
       "route":"configs",
-      "index":"5"
+      "index":"5",
+      "path":""
     }
   ]
 }

@@ -11,7 +11,7 @@
           v-for="item in nav"
           :key="item.index"
           :index="item.index">
-          {{item.name}}
+          <router-link class="router-link" :to="item.path">{{item.name}}</router-link>
         </el-menu-item>
       </el-menu>
     </div>
@@ -67,6 +67,13 @@
         color:#fff;
         background: #a55555;
         border-bottom: 2px solid #a55555;
+      }
+
+      .router-link{
+        display:block;
+        width:100%;
+        height:100%;
+        text-decoration:none;
       }
     }
   }
