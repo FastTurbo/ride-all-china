@@ -18,7 +18,6 @@ export default {
 
     //login
     mock.onPost('/login').reply(config => {
-      console.log(config);
       let {name,password} = JSON.parse(config.data);
       return new Promise((resolve,reject) => {
           setTimeout(()=>{
@@ -34,6 +33,19 @@ export default {
               resolve([200,{code:500,msg:'用户名和密码错误！'}])
             }
           },1000)
+      })
+    })
+
+    //riders
+    mock.onGet('/getRiders').reply(config => {
+
+      return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+          let {size = 10,page = 1} = config;
+          let data = riders.filter((item,index) => { return index > size*(page -1 ) && index < size*page})
+
+          resolve([200,{code:200,msg:'请求成功',data:data,total:riders.length}])
+        },1000)
       })
     })
 
