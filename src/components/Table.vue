@@ -25,7 +25,10 @@
       <el-table-column prop="brand" label="品牌" width="160"></el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
-          <el-button size="small" @click="handleEdit(scope.$index,scope.row)">编辑</el-button>
+          <el-tooltip content="编辑这条数据" effect="light" placement="top">
+            <el-button size="small" @click="handleEdit(scope.$index,scope.row)">编辑</el-button>
+          </el-tooltip>
+
           <el-button type="danger" size="small" @click="handleRemove(scope.$index)">删除</el-button>
         </template>
       </el-table-column>

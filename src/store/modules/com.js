@@ -20,7 +20,6 @@ const actions = {
         commit(types.GET_NAV_LIST,res)
       })
   }
-
 }
 
 
